@@ -1,176 +1,177 @@
-# 📝 Learning Markdown
+# Markdown-ի ուսուցում
 
-## 📘 Purpose
+## Նպատակ
 
-The purpose of this document is to record my experience learning **Markdown**, understand its **syntax**, explore its **use cases**, and apply it to real-world examples such as project documentation, notes, and technical writing.
+Այս փաստաթղթի նպատակն է գրանցել **Markdown**-ի ուսուցման իմ փորձը, հասկանալ դրա **շարահյուսությունը**, ուսումնասիրել դրա **օգտագործման դեպքերը** և կիրառել այն իրական աշխարհի օրինակների վրա, ինչպիսիք են նախագծային փաստաթղթերը, նշումները և տեխնիկական գրելը։
 
-By the end of this learning process, I wanted to:
+Այս ուսումնական գործընթացի ավարտին ես ցանկանում էի.
 
-* Understand **what Markdown is** and **why it’s used**.
-* Learn the **core syntax** for writing formatted text.
-* Gain confidence writing clean and readable documentation.
-* Apply Markdown to GitHub projects and personal notes.
-
----
-
-## 📚 What Is Markdown?
-
-**Markdown** is a lightweight markup language designed to make text formatting easy to write and read.
-It allows you to add structure (headings, lists, links, etc.) to plain text without complex HTML tags.
-
-It was created by *John Gruber* with the goal of being simple and intuitive — you should be able to read the Markdown file even without rendering it.
-
-Common uses of Markdown include:
-
-* `README.md` files for GitHub projects
-* Wiki pages and documentation
-* Blog posts written in static site generators (like Jekyll or Hugo)
-* Notes, changelogs, and task tracking
+* Հասկանալ **ինչ է Markdown-ը** և **ինչու է այն օգտագործվում**։
+* Սովորել ձևաչափված տեքստ գրելու **հիմնական շարահյուսությունը**։
+* Վստահություն ձեռք բերել մաքուր և ընթեռնելի փաստաթղթեր գրելու հարցում։
+* Կիրառել Markdown-ը GitHub նախագծերում և անձնական նշումներում։
 
 ---
 
-## 🔍 How I Studied Markdown
+## 📚 Ի՞նչ է Markdown-ը։
 
-To learn Markdown effectively, I followed several steps:
+**Markdown**-ը թեթև նշագրման լեզու է, որը նախատեսված է տեքստի ձևաչափումը հեշտացնելու և կարդալու համար։
+Այն թույլ է տալիս պարզ տեքստին ավելացնել կառուցվածք (վերնագրեր, ցուցակներ, հղումներ և այլն)՝ առանց բարդ HTML թեգերի։
 
-1. **Read official documentation**
+Այն ստեղծվել է *Ջոն Գրուբերի* կողմից՝ պարզ և ինտուիտիվ լինելու նպատակով. դուք պետք է կարողանաք կարդալ Markdown ֆայլը նույնիսկ առանց այն ռենդերինգի։
 
-   * [Daring Fireball Markdown Guide](https://daringfireball.net/projects/markdown/) — the original specification.
-   * [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/) — extended syntax supported by GitHub.
+Markdown-ի տարածված կիրառությունները ներառում են՝
 
-2. **Explored tutorials and cheat sheets**
-
-   * [Mastering Markdown (GitHub Guide)](https://guides.github.com/features/mastering-markdown/)
-   * [Markdown Guide](https://www.markdownguide.org/basic-syntax/)
-
-3. **Practiced writing Markdown**
-   I experimented by writing sample `.md` files, using:
-
-   * VS Code’s Markdown Preview (`Ctrl+Shift+V`)
-   * Online editors like StackEdit or Dillinger
-   * GitHub’s built-in README preview
-
-4. **Compared Markdown and HTML**
-   I learned how Markdown simplifies tasks like writing headings or links without requiring full HTML tags.
+* `README.md` ֆայլեր GitHub նախագծերի համար
+* Վիքի էջեր և փաստաթղթեր
+* Բլոգի գրառումներ, որոնք գրված են ստատիկ կայքերի գեներատորներում (օրինակ՝ Jekyll կամ Hugo)
+* Նշումներ, փոփոխությունների գրանցամատյաններ և առաջադրանքների հետևում
 
 ---
 
-## ✍️ What I Learned
+## Ինչպես եմ ուսումնասիրել Markdown-ը
 
-### 🧩 Basic Syntax
+Markdown-ը արդյունավետորեն սովորելու համար ես հետևել եմ մի քանի քայլերի՝
 
-| Feature       | Markdown                       | Rendered Output              |
-| ------------- | ------------------------------ | ---------------------------- |
-| Heading       | `# Heading 1`                  | <h1>Heading 1</h1>           |
-| Bold          | `**bold text**`                | **bold text**                |
-| Italic        | `*italic text*`                | *italic text*                |
-| Strikethrough | `~~text~~`                     | ~~text~~                     |
-| Link          | `[Google](https://google.com)` | [Google](https://google.com) |
-| Image         | `![Logo](logo.png)`            | *Image of logo*              |
-| Inline Code   | `` `print("Hello")` ``         | `print("Hello")`             |
+1. **Կարդալ պաշտոնական փաստաթղթերը**
 
-#### Lists
+* [Daring Fireball Markdown ուղեցույց](https://daringfireball.net/projects/markdown/) — սկզբնական սպեցիֆիկացիան։
+* [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/) — ընդլայնված սինտաքս, որն աջակցվում է GitHub-ի կողմից։
 
-* **Unordered List**
+2. **Ուսումնասիրված ձեռնարկներ և cheat sheets**
 
-  * Item 1
-  * Item 2
-  * Item 3
+* [Markdown-ի յուրացում (GitHub ուղեցույց)](https://guides.github.com/features/mastering-markdown/)
+* [Markdown ուղեցույց](https://www.markdownguide.org/basic-syntax/)
 
-* **Ordered List**
+3. **Markdown-ի գրելու պրակտիկա**
+Ես փորձարկումներ արեցի՝ գրելով `.md` ֆայլերի նմուշներ՝ օգտագործելով.
 
-  1. Step One
-  2. Step Two
-  3. Step Three
+* VS Code-ի Markdown-ի նախադիտումը (`Ctrl+Shift+V`)
+* StackEdit կամ Dillinger-ի նման առցանց խմբագրիչներ
+* GitHub-ի ներկառուցված README նախադիտումը
 
-#### Code Blocks
+4. **Markdown-ի և HTML-ի համեմատություն**
+Ես սովորեցի, թե ինչպես է Markdown-ը պարզեցնում վերնագրեր կամ հղումներ գրելը՝ առանց ամբողջական HTML թեգերի պահանջելու։
 
-```python
+---
+
+## Ինչ սովորեցի
+
+### Հիմնական շարահյուսություն
+
+| Հատկանիշ | Markdown | Ռենդերացված արդյունք |
+| ------------ | -------------------------------- | ------------------------------- |
+| Վերնագիր | `# Վերնագիր 1` | <h1>Վերնագիր 1</h1> |
+| Թավատառ | `**թավատառ տեքստ**` | **թավատառ տեքստ** |
+| Շեղատառ | `*թեքատառ տեքստ*` | *թեքատառ տեքստ* |
+| Գծագրված | `~~տեքստ~~` | ~~տեքստ~~ |
+| Հղում | `[Google](https://google.com)` | [Google](https://google.com) |
+| Պատկեր | `![Լոգո](logo.png)` | *Լոգոյի պատկեր* |
+| Ներկառուցված կոդ | `` `print("Բարև")` `` | `print("Բարև")` |
+
+#### Ցուցակներ
+
+* **Չդասակարգված ցուցակ**
+
+* Կետ 1
+* Կետ 2
+* Կետ 3
+
+* **Դասակարգված ցուցակ**
+
+1. Քայլ մեկ
+2. Քայլ երկրորդ
+3. Քայլ երրորդ
+
+#### Կոդի բլոկներ
+
+``python
 def greet():
-    print("Hello Markdown!")
+print("Բարև Markdown!")
 ```
 
-#### Blockquotes
+#### Բլոկչետեր
 
-> Markdown makes documentation cleaner and easier to read.
+> Markdown-ը փաստաթղթերը դարձնում է ավելի մաքուր և հեշտ ընթեռնելի։
 
 ---
 
-### ⚙️ Advanced Syntax
+### Ընդլայնված շարահյուսություն
 
-#### Tables
+#### Աղյուսակներ
 
 ```
-| Language | Use Case |
-|-----------|-----------|
-| Markdown | Documentation |
-| HTML | Web structure |
-| LaTeX | Scientific writing |
+| Լեզու | Օգտագործման դեպք |
+
+-----------|------------|
+| Markdown | Փաստաթղթեր |
+| HTML | Վեբ կառուցվածք |
+| LaTeX | Գիտական ​​գրավոր աշխատանք |
+``
+
+#### Առաջադրանքների ցանկեր
+
+* [x] Սովորեք Markdown-ի հիմունքները
+* [x] Ստեղծեք README.md օրինակ
+* [ ] Ուսումնասիրեք Markdown ընդլայնումները
+
+#### Ներկառուցված ցանկեր
+
+1. Թեմա 1
+
+* Ենթաթեմա A
+* Ենթաթեմա B
+2. Թեմա 2
+
+#### Հորիզոնական գիծ
+
+```
+---
 ```
 
-#### Task Lists
-
-* [x] Learn Markdown basics
-* [x] Create README.md example
-* [ ] Explore Markdown extensions
-
-#### Nested Lists
-
-1. Topic 1
-
-   * Subtopic A
-   * Subtopic B
-2. Topic 2
-
-#### Horizontal Line
-
-```
----
-```
-
-## Renders as:
+## Մոդելավորում է որպես՝
 
 ---
 
-## 💡 Practical Applications
+## Գործնական կիրառություններ
 
-* Writing documentation for repositories (`README.md`, `CONTRIBUTING.md`)
-* Keeping clean, formatted notes for studies or meetings
-* Creating changelogs or to-do lists with task lists
-* Writing articles or reports for blogs and wikis
-* Communicating clearly with collaborators on GitHub
-
----
-
-## 🧠 Reflections and Takeaways
-
-Learning Markdown helped me appreciate how small formatting details can improve clarity.
-It’s simple enough to learn in one day but powerful enough for all levels of documentation.
-
-Key takeaways:
-
-* Markdown improves **readability** and **collaboration**.
-* It encourages **clean structure** over visual clutter.
-* It’s supported almost everywhere — GitHub, GitLab, Notion, and more.
+* Պահոցների համար փաստաթղթերի գրում (`README.md`, `CONTRIBUTING.md`)
+* Ուսումնասիրությունների կամ հանդիպումների համար մաքուր, ձևաչափված նշումների պահպանում
+* Փոփոխությունների կամ անելիքների ցանկերի ստեղծում առաջադրանքների ցանկերով
+* Հոդվածների կամ զեկույցների գրում բլոգների և վիքիների համար
+* GitHub-ում համագործակիցների հետ հստակ հաղորդակցություն
 
 ---
 
-## 🚀 Next Steps
+## Մտորումներ և եզրակացություններ
 
-I plan to:
+Markdown-ի ուսուցումը օգնեց ինձ գնահատել, թե ինչպես ձևաչափման փոքր մանրամասները կարող են բարելավել պարզությունը։
+Այն բավականին պարզ է մեկ օրում սովորելու համար, բայց բավականին հզոր է փաստաթղթերի բոլոր մակարդակների համար։
 
-* Learn **GitHub Flavored Markdown** extensions (tables, mentions, code diff syntax).
-* Use Markdown with **static site generators** like Jekyll or MkDocs.
-* Explore **documentation automation tools** that use Markdown as input.
+Հիմնական եզրակացություններ՝
+
+* Markdown-ը բարելավում է **ընթեռնելիությունը** և **համագործակցությունը**։
+* Այն խրախուսում է **մաքուր կառուցվածքը** տեսողական խառնաշփոթի փոխարեն։
+* Այն աջակցվում է գրեթե ամենուր՝ GitHub, GitLab, Notion և այլն։
 
 ---
 
-## ✅ Summary
+## Հաջորդ քայլերը
 
-Markdown is a versatile tool that bridges simplicity and expressiveness.
-Through learning it, I improved my documentation skills and created a foundation for writing technical content efficiently.
-It’s a must-have skill for anyone working in development or content writing.
+Ես պլանավորում եմ՝
 
-> “Markdown is not just for documentation — it’s a mindset for clarity.”
+* Սովորել **GitHub Flavored Markdown** ընդլայնումները (աղյուսակներ, հիշատակումներ, կոդի տարբերությունների շարահյուսություն)։
+* Օգտագործել Markdown-ը **ստատիկ կայքերի գեներատորների** հետ, ինչպիսիք են Jekyll-ը կամ MkDocs-ը։
+* Ուսումնասիրել **փաստաթղթերի ավտոմատացման գործիքները**, որոնք օգտագործում են Markdown-ը որպես մուտքային տվյալներ։
+
+---
+
+## Ամփոփում
+
+Markdown-ը բազմակողմանի գործիք է, որը կամուրջ է դնում պարզության և արտահայտչականության միջև։
+Այն սովորելով՝ ես բարելավեցի իմ փաստաթղթավորման հմտությունները և ստեղծեցի հիմք՝ արդյունավետորեն տեխնիկական բովանդակություն գրելու համար։
+Դա պարտադիր հմտություն է մշակման կամ բովանդակության գրման ոլորտում աշխատող յուրաքանչյուրի համար։
+
+> «Markdown-ը միայն փաստաթղթավորման համար չէ, այլ պարզության վրա հիմնված մտածելակերպ է»։
 
 ---

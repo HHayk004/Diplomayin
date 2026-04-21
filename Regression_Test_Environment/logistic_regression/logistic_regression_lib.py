@@ -68,7 +68,7 @@ results = pd.DataFrame({
     'P_default': y_prob
 })
 
-results.to_csv('logistic_regression/logistic_regression_lib_results_5000.csv', index=False)
+results.to_csv('logistic_regression/results/logistic_regression_lib_results_5000.csv', index=False)
 
 # =========================
 # TEST 2: ALL 30,000 rows
@@ -88,7 +88,7 @@ pd.DataFrame({
     'Y_true': y_all.values,
     'Y_pred': y_pred_all,
     'P_default': y_prob_all
-}).to_csv('logistic_regression/logistic_regression_lib_results_30000.csv', index=False)
+}).to_csv('logistic_regression/results/logistic_regression_lib_results_30000.csv', index=False)
 
 # =========================
 # Save weights & bias
@@ -104,7 +104,7 @@ bias_df = pd.DataFrame({
 })
 
 pd.concat([weights_df, bias_df]).to_csv(
-    'logistic_regression/logistic_regression_lib_weights_bias.csv', index=False
+    'logistic_regression/results/logistic_regression_lib_weights_bias.csv', index=False
 )
 
 print("Results and model parameters saved successfully.")

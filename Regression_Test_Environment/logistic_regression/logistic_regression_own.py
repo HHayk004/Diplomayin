@@ -9,6 +9,10 @@ def sigmoid_function(z):
     z = np.clip(z, -500, 500)
     return 1 / (1 + np.exp(-z))
 
+def tahn_function(z):
+    z = np.clip(z, -500, 500)
+    return (((np.exp(z) - np.exp(-z)) / (np.exp(z) + np.exp(-z))) + 1) / float(2)
+
 # def cost_function(h, y):
 #     h = np.clip(h, 1e-12, 1 - 1e-12)
 #     return (-y * np.log(h) - (1 - y) * np.log(1 - h)).mean()
@@ -82,7 +86,7 @@ results_5k = pd.DataFrame({
     "Predicted_Y": y_pred_5k,
     "P_value": y_prob_5k
 })
-results_5k.to_csv("logistic_regression/logistic_regression_own_5000.csv", index=False)
+results_5k.to_csv("logistic_regression/results/logistic_regression_own_5000.csv", index=False)
 
 # =========================
 # TEST 2: ALL 30,000 rows
@@ -98,7 +102,7 @@ results_all = pd.DataFrame({
     "Predicted_Y": y_pred_all,
     "P_value": y_prob_all
 })
-results_all.to_csv("logistic_regression/logistic_regression_own_30000.csv", index=False)
+results_all.to_csv("logistic_regression/results/logistic_regression_own_30000.csv", index=False)
 
 # =========================
 # Save model parameters (weights + bias last)
@@ -107,6 +111,6 @@ model_params = pd.DataFrame({
     "feature": feature_cols + ["BIAS"],
     "weight": theta
 })
-model_params.to_csv("logistic_regression/logistic_regression_own_weights_bias.csv", index=False)
+model_params.to_csv("logistic_regression/results/logistic_regression_own_weights_bias.csv", index=False)
 
 print("\nAll results and model parameters saved successfully.")

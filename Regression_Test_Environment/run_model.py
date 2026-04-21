@@ -3,7 +3,7 @@ import sys
 
 scripts = [
     "clean_data.py",
-    "logistic_regression/logistic_regression_lib.py",
+    # "logistic_regression/logistic_regression_lib.py",
     "logistic_regression/logistic_regression_own.py"
 ]
 

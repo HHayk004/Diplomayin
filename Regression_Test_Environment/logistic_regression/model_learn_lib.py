@@ -1,25 +1,8 @@
 import numpy as np
 import pandas as pd
 import pyodbc
-
-def sigmoid(z):
-    z = np.clip(z, -500, 500)
-    return 1 / (1 + np.exp(-z))
-
-def logistic_reg(alpha, X, y, iters=5000):
-    theta = np.zeros(X.shape[1] + 1)
-
-    for _ in range(iters):
-        z = np.dot(X, theta[:-1]) + theta[-1]
-        h = sigmoid(z)
-
-        gradient = np.dot(X.T, (h - y)) / y.size
-
-        theta[:-1] -= alpha * gradient
-        theta[-1] -= alpha * (h - y).mean()
-
-    return theta
-
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
 
 conn = pyodbc.connect(
     "Driver={ODBC Driver 18 for SQL Server};"
@@ -32,30 +15,40 @@ conn = pyodbc.connect(
     "Connection Timeout=30;"
 )
 
-df = pd.read_sql("SELECT * FROM defaultofcreditcardclients", conn)
+df = pd.read_sql("SELECT * FROM train_data", conn)
 
 if "ID" in df.columns:
     df = df.drop(columns=["ID"])
 
-X = df.iloc[:, :-1].values
-y = df.iloc[:, -1].values
+X = df.iloc[:, :-1]
+y = df.iloc[:, -1].astype(int)
 
-theta = logistic_reg(0.01, X, y)
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+model = LogisticRegression(max_iter=5000, solver='lbfgs')
+model.fit(X_scaled, y)
+
+weights = model.coef_[0]
+bias = model.intercept_[0]
 
 cursor = conn.cursor()
 cursor.execute("TRUNCATE TABLE model_params")
 conn.commit()
 
-for i, w in enumerate(theta[:-1]):
+for i, w in enumerate(weights):
     cursor.execute(
         "INSERT INTO model_params (feature_index, weight, is_bias) VALUES (?, ?, 0)",
-        i, float(w)
+        int(i),
+        float(w)
     )
 
 cursor.execute(
     "INSERT INTO model_params (feature_index, weight, is_bias) VALUES (?, ?, 1)",
-    -1, float(theta[-1])
+    -1,
+    float(bias)
 )
 
 conn.commit()
-print("Model trained successfully")
+
+print("Model trained and saved to SQL successfully")

@@ -7,34 +7,51 @@ def sigmoid(z):
     z = np.clip(z, -500, 500)
     return 1 / (1 + np.exp(-z))
 
-conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};" \
-                      "Server=tcp:mt240-sql-1.database.windows.net,1433;" \
-                      "Database=mt240-sql-db-1;" \
-                      "Uid=adminuser;" \
-                      "Pwd=D13nam04295;" \
-                      "Encrypt=yes;" \
-                      "TrustServerCertificate=no;" \
-                      "Connection Timeout=30;")
 
+conn = pyodbc.connect(
+    "Driver={ODBC Driver 18 for SQL Server};"
+    "Server=tcp:mt240-sql-1.database.windows.net,1433;"
+    "Database=mt240-sql-db-1;"
+    "Uid=adminuser;"
+    "Pwd=D13nam04295;"
+    "Encrypt=yes;"
+    "TrustServerCertificate=no;"
+    "Connection Timeout=30;"
+)
+
+# load test data (already split in SQL)
 df = pd.read_sql("SELECT * FROM test_data", conn)
+
+# remove ID if exists
+if "ID" in df.columns:
+    df = df.drop(columns=["ID"])
+
 X = df.iloc[:, :-1].values
 y = df.iloc[:, -1].values
 
-model_df = pd.read_sql("SELECT * FROM model_params ORDER BY feature_index", conn)
-theta = model_df["weight"].values
+# load model correctly
+model_df = pd.read_sql("""
+SELECT feature_index, weight, is_bias
+FROM model_params
+""", conn)
 
-z = np.dot(X, theta[:-1]) + theta[-1]
+weights = model_df[model_df["is_bias"] == 0].sort_values("feature_index")["weight"].values
+bias = model_df[model_df["is_bias"] == 1]["weight"].values[0]
+
+# prediction
+z = np.dot(X, weights) + bias
 probs = sigmoid(z)
 preds = (probs >= 0.5).astype(int)
 
 acc = accuracy_score(y, preds)
 print("Accuracy:", acc)
 
+# save predictions
 cursor = conn.cursor()
 cursor.execute("TRUNCATE TABLE pvalues")
 conn.commit()
 
-for i in range(len(probs)):
+for i in range(len(y)):
     cursor.execute(
         "INSERT INTO pvalues (actual, predicted, probability) VALUES (?, ?, ?)",
         int(y[i]), int(preds[i]), float(probs[i])

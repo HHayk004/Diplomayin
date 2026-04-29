@@ -11,7 +11,7 @@ conn = pyodbc.connect("Driver={ODBC Driver 18 for SQL Server};" \
                       "Connection Timeout=30;")
 
 # Load full dataset
-df = pd.read_sql("SELECT * FROM main_data ORDER BY ID", conn)
+df = pd.read_sql("SELECT * FROM defaultofcreditcardclients ORDER BY ID", conn)
 
 # Split
 train_df = df.iloc[:25000]
